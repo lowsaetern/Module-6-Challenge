@@ -1,5 +1,3 @@
-
-
 #main-dashboard {
     background-image: linear-gradient(to bottom right, rgb(142, 142, 222), #1869b9);
 }
@@ -12,7 +10,7 @@ ul {
     list-style-type: none;
 }
 
-#search-button {
+#search-btn {
     border-radius: 10px;
     background-color: rgb(142, 142, 222);
     color: white;
@@ -24,4 +22,30 @@ ul {
     border-width: 1px;
     margin-top: 3px;
     padding: 5px;
+
+}
+
+#UV-data {
+    border-radius: 15px;
+    padding: 5px;
+}
+
+.day-card {
+    background-color: rgb(142, 142, 222);
+    margin: 5px;
+    padding: 5px;
+}
+.date {
+    color: white;
+    font-size: 20px;
+}
+
+.icon {
+    justify-content: center;
+}
+
+.forecast-data {
+    color: white;
+    justify-content: center;
+    font-size: 10px;
 }

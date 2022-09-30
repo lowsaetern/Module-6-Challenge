@@ -12,24 +12,25 @@
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
-<body class ="container">
+<body class="container">
 
-    <div id="main-dashboard" class="main-row">
+    <div id="main-dashboard" class="row justify-content-center">
         <h1 id="main-title">Weather Dashboard</h1>
     </div>
 
     <div class="row">
-        <div class="city-column">
-            <h2> Search for a City: </h2>
+        <div class="col-3">
+            <h2> Search for a City:</h2>
             <form> 
                 <input type="text" id="city-input" name="city-input" placeholder="City Name">
-                <button class="button" id="search-button" type="submit">Search</button>
+                <button class="btn" id="search-btn" type="submit">Search</button>
                 <hr>
+                
             </form>
             <ul id="ul"></ul>
         </div>
 
-        <div class="current-city-column">
+        <div class="col-9">
             <div id="current-city" class="row">
                 <section>
                     <div id="city-weather">
@@ -51,7 +52,7 @@
 
             <div class="row">
 
-                <div class="forecast-card">
+                <div class="col-xs-2 day-card">
                     <h4 class="date" id="day-1"></h4>
                     <ul>
                         <img class="icon" id="day-1-Icon" src="" alt="">
@@ -62,7 +63,7 @@
                 </div>
 
 
-                <div class="forecast-card">
+                <div class="col-xs-2 day-card">
                     <h4 class="date" id="day-2"></h4>
                     <ul>
                         <img class="icon" id="day-2-Icon" src="" alt="">
@@ -72,7 +73,7 @@
                     </ul>
                 </div>
 
-                <div class="forecast-card">
+                <div class="col-xs-2 day-card">
                     <h4 class="date" id="day-3"></h4>
                     <ul>
                         <img class="icon" id="day-3-Icon" src="" alt="">
@@ -82,7 +83,7 @@
                     </ul>
                 </div>
 
-                <div class="forecast-card">
+                <div class="col-xs-2 day-card">
                     <h4 class="date" id="day-4"></h4>
                     <ul>
                         <img class="icon" id="day-4-Icon" src="" alt="">
@@ -92,7 +93,7 @@
                     </ul>
                 </div>
 
-                <div class="forecast-card">
+                <div class="col-xs-2 day-card">
                     <h4 class="date" id="day-5"></h4>
                     <ul>
                         <img class="icon" id="day-5-Icon" src="" alt="">
