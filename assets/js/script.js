@@ -43,3 +43,45 @@ var icon5 = document.querySelector('#day-5-Icon')
 var temp5 = document.getElementById("day-5-temp")
 var wind5 = document.getElementById("day-5-wind")
 var humidity5 = document.getElementById("day-5-humidity")
+
+function LowUV() {
+    UV.style.backgroundColor = "#00FF00"
+}
+function ModerateUV() {
+    UV.style.backgroundColor = "#FFFF00"
+}
+function HighUV() {
+    UV.style.backgroundColor = "#FFA500"
+}
+function VeryHighUV() {
+    UV.style.backgroundColor = "#FF0000"
+}
+
+searchBtn.addEventListener('click', function (e) {
+    e.preventDefault()
+    var exclusions = "minutely, hourly, daily, alerts"
+    var cityInput = document.getElementById("city-input")
+    var ul = document.getElementById("ul")
+
+    var searched = false
+    var historyBtns = document.querySelectorAll(".history-btn")
+    if (historyBtns) {
+        for (let i = 0; i < historyBtns.length; i++) {
+            if (historyBtns[i].textContent == cityInput.value) {
+                searched = true
+            }
+        }
+    }
+    if (!searched) {
+        var btn = document.createElement("button")
+        btn.classList.add("history-btn")
+        var li = document.createElement("li")
+        btn.textContent = cityInput.value
+        ul.appendChild(li)
+        li.appendChild(btn)
+        btn.addEventListener('click', function (e) {
+            e.preventDefault()
+            cityInput.value = this.textContent
+        })
+    }
+    
