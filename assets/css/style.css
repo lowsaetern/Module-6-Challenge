@@ -49,3 +49,14 @@ ul {
     justify-content: center;
     font-size: 10px;
 }
+
+.history-btn {
+    border: none;
+    color: black;
+    margin-top: 5px;
+    display: block;
+    width: 100%;
+    padding: 2px;
+    text-align: center;
+    cursor: pointer;
+}
