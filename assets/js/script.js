@@ -44,6 +44,7 @@ var temp5 = document.getElementById("day-5-temp")
 var wind5 = document.getElementById("day-5-wind")
 var humidity5 = document.getElementById("day-5-humidity")
 
+// UV Colors
 function LowUV() {
     UV.style.backgroundColor = "#00FF00"
 }
@@ -57,6 +58,7 @@ function VeryHighUV() {
     UV.style.backgroundColor = "#FF0000"
 }
 
+//City Input Button Function
 searchBtn.addEventListener('click', function (e) {
     e.preventDefault()
     var exclusions = "minutely, hourly, daily, alerts"
@@ -84,13 +86,17 @@ searchBtn.addEventListener('click', function (e) {
             cityInput.value = this.textContent
         })
     }
+
+    //API Keys
+
+    //First API 
     fetch("https://api.openweathermap.org/data/2.5/weather?q=" + cityInput.value + "&appid=5b8062093cb0f5e2847f3f414149f285&units=imperial")
         .then((res) => res.json())
         .then((data) => {
             console.log(data)
             day.textContent = data.name + ' (' + moment().format('l') + ') '
 
-            //Current weather and forecast icons
+           //Current Weather
             currentWeather.src = "https://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png"
 
             icon1.src = "https://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png"
@@ -99,22 +105,22 @@ searchBtn.addEventListener('click', function (e) {
             icon4.src = "https://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png"
             icon5.src = "https://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png"
 
-            //temp, wind, humidity, city name for chosen city
+
             temp.textContent = "Temp: " + data.main.temp + degree
             wind.textContent = "Wind Speed: " + data.wind.speed + mph
             humidity.textContent = "Humidity: " + data.main.humidity + percent
 
-            // second API call
+            //Second API UV Index
             fetch("https://api.openweathermap.org/data/2.5/uvi?lat=" + data.coord.lat + "&lon=" + data.coord.lon + "&exclude=" + exclusions + "&appid=5b8062093cb0f5e2847f3f414149f285")
                 .then((res) => res.json())
                 .then((data) => {
                     console.log(data)
 
-                    //UV index for chosen city
+                    
                     UV.textContent = "UV Index: " + data.value
                     UV.value = data.value
 
-                    //Assign color to UV index value
+                    
                     if (UV.value <= 2) {
                         console.log("UV", UV)
                         console.log("low", UV.value)
@@ -131,12 +137,12 @@ searchBtn.addEventListener('click', function (e) {
                     }
                 })
 
-            //5-day forecast (temp, wind, humidity), dates (3rd API call)
+            //Third API 5 Day Forecast
             fetch("https://api.openweathermap.org/data/2.5/forecast?lat=" + data.coord.lat + "&lon=" + data.coord.lon + "&exclude=" + exclusions + "&appid=5b8062093cb0f5e2847f3f414149f285&units=imperial")
                 .then((res) => res.json())
                 .then((data) => {
                     console.log(data)
-                    //5-days needed in array: 3, 11, 19, 27, 35
+                  
                     day1.textContent = moment().add("days", 1).format('l')
                     temp1.textContent = "Temp: " + data.list[3].main.temp_max + degree
                     wind1.textContent = "Wind Speed: " + data.list[3].wind.speed + mph
