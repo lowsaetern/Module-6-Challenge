@@ -32,8 +32,12 @@ ul {
 
 .day-card {
     background-color: rgb(142, 142, 222);
-    margin: 5px;
-    padding: 5px;
+    margin: 3px;
+    padding: 3px;
+    display: block;
+    width: 18%;
+
+    text-align: center;
 }
 .date {
     color: white;
